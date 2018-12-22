@@ -1,6 +1,10 @@
 from pandas.api.types import is_string_dtype, is_numeric_dtype
 from sklearn.ensemble import RandomForestRegressor
 
+def train_cats(df):
+    for n,c in df.items():
+        if is_string_dtype(c): df[n] = c.astype('category').cat.as_ordered()
+
 def proc_df(df, y_fld=None, skip_flds=None, ignore_flds=None, do_scale=False, na_dict=None,
             preproc_fn=None, max_n_cat=None, subset=None, mapper=None):
     if not ignore_flds: ignore_flds=[]
