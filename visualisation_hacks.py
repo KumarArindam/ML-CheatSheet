@@ -1,5 +1,6 @@
 
 ####### Here PATH is the location of the data.
+## already inbuilt in fastai-0.7 under the class ImageModelResult(data.val_ds,log_pred)
 
 def rand_by_mask(mask): 
 	return np.random.choice(np.where(mask)[0], min(len(preds), 4), replace=False)
